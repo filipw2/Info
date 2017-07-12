@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "558716867609",
+    "firebase_url": "https://test-94283.firebaseio.com",
+    "project_id": "test-94283",
+    "storage_bucket": "test-94283.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:558716867609:android:ec4801438a7af3ca",
+        "android_client_info": {
+          "package_name": "com.example.filip.info"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "558716867609-9jf4u79er50h6a874ujog1c78s2451vi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwtZL2xhTRaUzOuG8ETJHELGsv0TyP3r0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

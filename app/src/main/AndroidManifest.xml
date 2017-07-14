@@ -20,7 +20,7 @@
             android:value="barcode"/>
 
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".main.KotlinActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

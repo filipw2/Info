@@ -33,12 +33,11 @@ public class ScanBarcodeActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
-
+        mLayout = findViewById(R.id.camera_preview);
         cameraPreview = findViewById(R.id.camera_preview);
-        if (ActivityCompat.checkSelfPermission(ScanBarcodeActivity.this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
-            requestPermission();
-        else
-            createCameraSource();
+
+
+        createCameraSource();
 
     }
 
@@ -54,8 +53,9 @@ public class ScanBarcodeActivity extends Activity {
 
                 try {
                     if (ActivityCompat.checkSelfPermission(ScanBarcodeActivity.this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                        Log.i(TAG, "createCameraSource requestPermission()");
                         requestPermission();
-                        return;
+                        // return;
                     } else
                         cameraSource.start(cameraPreview.getHolder());
                 } catch (IOException e) {
@@ -89,22 +89,21 @@ public class ScanBarcodeActivity extends Activity {
                     intent.putExtra("barcode", barcodes.valueAt(0));
                     setResult(CommonStatusCodes.SUCCESS, intent);
                     finish();
-            }
+                }
             }
         });
     }
 
     private void requestPermission() {
-        // BEGIN_INCLUDE(camera_permission_request)
         if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                 android.Manifest.permission.CAMERA)) {
             // Provide an additional rationale to the user if the permission was not granted
             // and the user would benefit from additional context for the use of the permission.
             // For example if the user has previously denied the permission.
-            //Log.i(TAG,"Displaying camera permission rationale to provide additional context.");
+            Log.i(TAG, "Displaying camera permission rationale to provide additional context.");
             Snackbar.make(mLayout, "pls",
                     Snackbar.LENGTH_INDEFINITE)
-                    .setAction("ok", new View.OnClickListener() {
+                    .setAction(R.string.rationale_camera, new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             ActivityCompat.requestPermissions(ScanBarcodeActivity.this,
@@ -126,7 +125,7 @@ public class ScanBarcodeActivity extends Activity {
                                            @NonNull int[] grantResults) {
 
         if (requestCode == REQUEST_CAMERA) {
-            // BEGIN_INCLUDE(permission_result)
+
             // Received permission result for camera permission.
             Log.i(TAG, "Received response for Camera permission request.");
 
@@ -134,14 +133,13 @@ public class ScanBarcodeActivity extends Activity {
             if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 // Camera permission has been granted, preview can be displayed
                 Log.i(TAG, "CAMERA permission has now been granted. Showing preview.");
-                createCameraSource();
+                recreate();
             } else {
                 Log.i(TAG, "CAMERA permission was NOT granted.");
-                Snackbar.make(mLayout, "zabroniono",
+                Snackbar.make(mLayout, R.string.permission_not_granted,
                         Snackbar.LENGTH_SHORT).show();
 
             }
-            // END_INCLUDE(permission_result)
 
         } else {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults);

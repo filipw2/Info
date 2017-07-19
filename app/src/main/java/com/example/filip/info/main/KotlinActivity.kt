@@ -44,7 +44,7 @@ class KotlinActivity : Activity() {
 
                     //barcodeResult.setText("Barcode: "+barcode.displayValue);
                 } else {
-                    barcodeResult.setText("No barcode found")
+                    barcodeResult.text = "No barcode found"
                 }
             }
         } else {

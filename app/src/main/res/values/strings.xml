@@ -3,4 +3,5 @@
     <string name="permission_granted">Permission GRANTED</string>
     <string name="permission_not_granted">Permission not granted</string>
     <string name="rationale_camera">Need camera permission</string>
+    <string name="coins">Coins</string>
 </resources>

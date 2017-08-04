@@ -1,7 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-
-
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.0"
@@ -20,7 +18,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility = '1.7'
+        targetCompatibility = '1.7'
+    }
+
 }
+
 
 
 dependencies {
@@ -28,6 +32,10 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    androidTestCompile('com.android.support.test.espresso:espresso-intents:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.karumi:dexter:4.1.0'
     compile 'com.google.code.gson:gson:2.7'
     compile 'com.android.support:design:25.3.1'
     compile 'com.firebaseui:firebase-ui-storage:2.0.1'

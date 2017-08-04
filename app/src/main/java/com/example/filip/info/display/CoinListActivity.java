@@ -9,6 +9,12 @@ import android.support.v7.widget.RecyclerView;
 import com.example.filip.info.R;
 import com.example.filip.info.coin.Coin;
 import com.example.filip.info.coin.ParseJSON;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.single.PermissionListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +28,8 @@ public class CoinListActivity extends AppCompatActivity implements OnTaskComplet
 
     List<Coin> coins;
     RecyclerView rvCoins;
+    ParseJSON parseJSON;
+    Boolean permissionGranted = true;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,15 +38,39 @@ public class CoinListActivity extends AppCompatActivity implements OnTaskComplet
         setContentView(R.layout.activity_coins);
 
         rvCoins = (RecyclerView) findViewById(R.id.rvCoins);
-        ParseJSON parseJSON = new ParseJSON();
+        parseJSON();
+
+    }
+
+    private void parseJSON() {
+        parseJSON = new ParseJSON();
         try {
-            parseJSON.getCoins(this);
+            Dexter.withActivity(this)
+                    .withPermission(android.Manifest.permission.INTERNET)
+                    .withListener(new PermissionListener() {
+                        @Override
+                        public void onPermissionGranted(PermissionGrantedResponse response) {
+                            permissionGranted = true;
+                        }
+
+                        @Override
+                        public void onPermissionDenied(PermissionDeniedResponse response) {
+                            permissionGranted = false;
+                        }
+
+                        @Override
+                        public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
+
+                        }
+                    }).check();
+
+            if (permissionGranted) parseJSON.getCoins(this);
+
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
     }
 
     @Override

@@ -3,8 +3,8 @@ package com.example.filip.info.coin;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.example.filip.info.MainActivity;
 import com.example.filip.info.display.OnTaskCompleted;
+import com.example.filip.info.main.KotlinActivity;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -56,6 +56,8 @@ public class ParseJSON {
         //sb.append("&format=json");
         String message = sb.toString();
         Log.i(TAG, "msg" + message);
+
+
         new WebServiceHandler(listener).execute(message);
 
 
@@ -93,7 +95,7 @@ public class ParseJSON {
                 return streamToString(in);
 
             } catch (Exception e) {
-                Log.d(MainActivity.class.getSimpleName(), e.toString());
+                Log.d(KotlinActivity.class.getSimpleName(), e.toString());
                 return null;
             }
 

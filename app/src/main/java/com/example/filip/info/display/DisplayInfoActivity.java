@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.filip.info.MainActivity;
 import com.example.filip.info.R;
 import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.firebase.database.DataSnapshot;
@@ -29,13 +28,14 @@ public class DisplayInfoActivity extends Activity {
     Context context;
     StorageReference storageReference;
     StorageReference image;
+    String message;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_display);
         Intent intent = getIntent();
-        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        message = intent.getStringExtra("com.example.filip.info.MESSAGE");
         imageV = findViewById(R.id.ImageViewImage);
         textV = findViewById(R.id.editTextV);
         textV.setText(message);
@@ -69,9 +69,6 @@ public class DisplayInfoActivity extends Activity {
 
                 }
             });
-
-
-
 
 
         }catch(Exception e){

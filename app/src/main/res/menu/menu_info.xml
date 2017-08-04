@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.filip.info.main.KotlinActivity">
+    <item android:orderInCategory="100" />
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="101"
+        app:showAsAction="never" />
+    <group android:orderInCategory="101" />
+    <item
+        android:id="@+id/exit"
+        android:orderInCategory="102" />
+</menu>

@@ -3,24 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.filip.info.MainActivity">
+    tools:context="com.example.filip.info.main.KotlinActivity">
+
+    <include layout="@layout/toolbar" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="80dp"
+        android:layout_toEndOf="@+id/scan_result"
         android:text="Current CryptoCurrency values" />
     <Button
         android:id="@+id/scan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView2"
-        android:layout_marginTop="25dp"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/scan_result"
         android:onClick="scanBarcode"
         android:text="SCAN" />
 
@@ -29,10 +29,9 @@
         android:id="@+id/button_coin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/textView"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="24dp"
+        android:layout_toEndOf="@+id/scan_result"
         android:text="@string/coins"
         tools:layout_editor_absoluteX="7dp"
         tools:layout_editor_absoluteY="135dp" />
@@ -43,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/button_coin"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="18dp"
         android:text="Scan barcode and get info" />
 
     <TextView

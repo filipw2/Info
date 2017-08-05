@@ -19,8 +19,9 @@
         android:id="@+id/scan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@+id/scan_result"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="14dp"
         android:onClick="scanBarcode"
         android:text="SCAN" />
 
@@ -52,6 +53,25 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/scan"
         android:layout_marginTop="30dp" />
+
+    <TextView
+        android:id="@+id/tv_swipe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/scan_result"
+        android:layout_alignBottom="@+id/scan_result"
+        android:layout_alignParentStart="true"
+        android:text="swipe" />
+
+    <Button
+        android:id="@+id/btn_swipe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_swipe"
+        android:layout_marginTop="16dp"
+        android:layout_toEndOf="@+id/scan_result"
+        android:onClick="swipe"
+        android:text="Button" />
 
 
 </RelativeLayout>

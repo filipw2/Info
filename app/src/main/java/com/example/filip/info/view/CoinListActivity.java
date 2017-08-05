@@ -1,10 +1,12 @@
-package com.example.filip.info.display;
+package com.example.filip.info.view;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 
 import com.example.filip.info.R;
 import com.example.filip.info.coin.Coin;
@@ -34,9 +36,11 @@ public class CoinListActivity extends AppCompatActivity implements OnTaskComplet
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_coins);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         rvCoins = (RecyclerView) findViewById(R.id.rvCoins);
         parseJSON();
 
@@ -83,5 +87,12 @@ public class CoinListActivity extends AppCompatActivity implements OnTaskComplet
         CoinsAdapter adapter = new CoinsAdapter(coins, this);
         rvCoins.setAdapter(adapter);
         rvCoins.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_info, menu);
+        return true;
+
     }
 }

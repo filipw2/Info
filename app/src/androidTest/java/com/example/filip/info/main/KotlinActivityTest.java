@@ -4,8 +4,8 @@ import android.support.test.espresso.intent.rule.IntentsTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
 import com.example.filip.info.R;
-import com.example.filip.info.display.CoinListActivity;
-import com.example.filip.info.display.DisplayInfoActivity;
+import com.example.filip.info.view.CoinListActivity;
+import com.example.filip.info.view.DisplayInfoActivity;
 
 import org.junit.Before;
 import org.junit.Rule;

@@ -1,10 +1,10 @@
-package com.example.filip.info.display;
+package com.example.filip.info.view;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,7 +21,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 
-public class DisplayInfoActivity extends Activity {
+public class DisplayInfoActivity extends AppCompatActivity {
 
     ImageView imageV;
     TextView textV;
@@ -36,10 +36,11 @@ public class DisplayInfoActivity extends Activity {
         setContentView(R.layout.activity_display);
         Intent intent = getIntent();
         message = intent.getStringExtra("com.example.filip.info.MESSAGE");
-        imageV = findViewById(R.id.ImageViewImage);
-        textV = findViewById(R.id.editTextV);
+        imageV = (ImageView) findViewById(R.id.ImageViewImage);
+        textV = (TextView) findViewById(R.id.editTextV);
         textV.setText(message);
         createView(message);
+
 
         context = this;
     }
@@ -75,4 +76,6 @@ public class DisplayInfoActivity extends Activity {
             textV.setText(e.toString());
         }
     }
+
+
 }

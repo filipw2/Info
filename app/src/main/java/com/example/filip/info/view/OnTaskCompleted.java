@@ -1,4 +1,4 @@
-package com.example.filip.info.display;
+package com.example.filip.info.view;
 
 import java.util.ArrayList;
 

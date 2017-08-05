@@ -34,9 +34,10 @@
         <activity android:name=".ScanBarcodeActivity"
             android:label="Scan Barcode"/>
 
-        <activity android:name=".display.DisplayInfoActivity" />
+        <activity android:name=".view.DisplayInfoActivity" />
 
-        <activity android:name=".display.CoinListActivity" />
+        <activity android:name=".view.CoinListActivity" />
+        <activity android:name=".view.swipe.SwipeActivity" />
     </application>
 
 </manifest>

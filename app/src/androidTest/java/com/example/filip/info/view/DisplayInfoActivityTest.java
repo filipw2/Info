@@ -1,4 +1,4 @@
-package com.example.filip.info.display;
+package com.example.filip.info.view;
 
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;

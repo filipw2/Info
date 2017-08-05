@@ -4,14 +4,16 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.Menu
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import com.example.filip.info.R
 import com.example.filip.info.ScanBarcodeActivity
-import com.example.filip.info.display.CoinListActivity
-import com.example.filip.info.display.DisplayInfoActivity
+import com.example.filip.info.view.CoinListActivity
+import com.example.filip.info.view.DisplayInfoActivity
+import com.example.filip.info.view.swipe.SwipeActivity
 import com.google.android.gms.common.api.CommonStatusCodes
 import com.google.android.gms.vision.barcode.Barcode
 
@@ -20,6 +22,7 @@ import com.google.android.gms.vision.barcode.Barcode
  */
 
 class KotlinActivity : AppCompatActivity() {
+    var TAG = "KotlinActivity"
     val EXTRA_MESSAGE = "com.example.filip.info.MESSAGE"
     internal lateinit var barcodeResult: TextView
 
@@ -38,8 +41,13 @@ class KotlinActivity : AppCompatActivity() {
     }
 
     fun scanBarcode(v: View) {
-        val intent = Intent(this, ScanBarcodeActivity::class.java)
-        startActivityForResult(intent, 0)
+        startActivityHandler(ScanBarcodeActivity::class.java)
+
+    }
+
+    fun swipe(v: View) {
+        Log.i(TAG, "in swipe")
+        startActivityHandler(SwipeActivity::class.java)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -63,10 +71,11 @@ class KotlinActivity : AppCompatActivity() {
     }
 
     fun startActivityHandler(cl: Class<*>, message: String = "") {
-        var intent = Intent(this, cl)
-
-        intent.putExtra(EXTRA_MESSAGE, message)
+        var intent = Intent(applicationContext, cl)
+        Log.i(TAG, "in startActivityHandler")
+        if (message != "") intent.putExtra(EXTRA_MESSAGE, message)
         startActivity(intent)
+        Log.i(TAG, "startActivityHandler end")
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

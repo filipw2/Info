@@ -3,8 +3,8 @@ package com.example.filip.info.coin;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.example.filip.info.display.OnTaskCompleted;
 import com.example.filip.info.main.KotlinActivity;
+import com.example.filip.info.view.OnTaskCompleted;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;

@@ -1,4 +1,4 @@
-package com.example.filip.info.display;
+package com.example.filip.info.view;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

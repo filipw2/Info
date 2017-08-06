@@ -2,9 +2,12 @@ package com.example.filip.info.view.swipe;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.widget.Toast;
 
 import com.example.filip.info.R;
@@ -13,7 +16,7 @@ import com.example.filip.info.R;
  * Created by Filip on 2017-08-05.
  */
 
-public class SwipeActivity extends FragmentActivity {
+public class SwipeActivity extends AppCompatActivity {
     private static String TAG = "SwipeActivity";
 
     DemoFragmentPageAdapter demoFragmentPageAdapter;
@@ -28,9 +31,14 @@ public class SwipeActivity extends FragmentActivity {
 
         Log.i(TAG, "new adapter");
         demoFragmentPageAdapter = new DemoFragmentPageAdapter(getSupportFragmentManager());
-        viewPager = findViewById(R.id.pager);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        viewPager = (ViewPager) findViewById(R.id.pager);
         Log.i(TAG, "setAdapter");
         viewPager.setAdapter(demoFragmentPageAdapter);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
+        tabLayout.setupWithViewPager(viewPager);
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
@@ -57,5 +65,9 @@ public class SwipeActivity extends FragmentActivity {
 
     }
 
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_info, menu);
+        return true;
+    }
 }

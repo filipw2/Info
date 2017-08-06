@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.filip.info.R;
 
@@ -43,8 +44,8 @@ public class DemoFragment extends Fragment {
         Log.i(TAG, "inflater.inflate");
         View rootView = inflater.inflate(R.layout.fragment, container, false);
         Bundle args = getArguments();
-        // TextView tvLabel = (TextView) rootView.findViewById(text1);
-        // tvLabel.setText(page + " -- " + title);
+        TextView tvLabel = rootView.findViewById(R.id.tvFragment);
+        tvLabel.setText(page + " -- " + title);
         Log.i(TAG, "return rootView");
         return rootView;
     }

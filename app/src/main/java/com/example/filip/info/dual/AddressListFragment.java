@@ -3,6 +3,7 @@ package com.example.filip.info.dual;
 import android.app.Activity;
 import android.app.ListFragment;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -36,6 +37,16 @@ public class AddressListFragment extends ListFragment {
         AddressListAdapter addressListAdapter = new AddressListAdapter(mNameAndAddress);
         setListAdapter(addressListAdapter);
 
+    }
+
+    @SuppressWarnings("deprecation")
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            mActivityComs = (ActivityComs) activity;
+        }
     }
 
     @Override

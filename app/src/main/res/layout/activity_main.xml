@@ -5,94 +5,103 @@
     android:layout_height="match_parent"
     tools:context="com.example.filip.info.main.KotlinActivity">
 
-    <include
-        layout="@layout/toolbar"
-        android:elevation="4dp" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="80dp"
-        android:layout_toEndOf="@+id/scan_result"
-        android:text="Current CryptoCurrency values" />
-    <Button
-        android:id="@+id/scan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView2"
-        android:layout_marginTop="14dp"
-        android:onClick="scanBarcode"
-        android:text="SCAN" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+            <include
+                layout="@layout/toolbar"
+                android:elevation="4dp" />
 
-    <Button
-        android:id="@+id/button_coin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
-        android:layout_marginTop="24dp"
-        android:layout_toEndOf="@+id/scan_result"
-        android:text="@string/coins"
-        tools:layout_editor_absoluteX="7dp"
-        tools:layout_editor_absoluteY="135dp" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="80dp"
+                android:layout_toEndOf="@+id/scan_result"
+                android:text="Current CryptoCurrency values" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/button_coin"
-        android:layout_marginTop="18dp"
-        android:text="Scan barcode and get info" />
-
-    <TextView
-        android:id="@+id/scan_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/scan"
-        android:layout_marginTop="30dp" />
-
-    <TextView
-        android:id="@+id/tv_swipe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/scan_result"
-        android:layout_alignBottom="@+id/scan_result"
-        android:layout_alignParentStart="true"
-        android:text="swipe" />
-
-    <Button
-        android:id="@+id/btn_swipe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_swipe"
-        android:layout_marginTop="16dp"
-        android:layout_toEndOf="@+id/scan_result"
-        android:onClick="swipe"
-        android:text="Button" />
-
-    <TextView
-        android:id="@+id/textDual"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/btn_swipe"
-        android:layout_marginTop="15dp"
-        android:text="dualfragment" />
-
-    <Button
-        android:id="@+id/bnDual"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textDual"
-        android:layout_marginTop="17dp"
-        android:onClick="startDual"
-        android:text="Button" />
+            <Button
+                android:id="@+id/scan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView2"
+                android:layout_marginTop="14dp"
+                android:onClick="scanBarcode"
+                android:text="SCAN" />
 
 
+            <Button
+                android:id="@+id/button_coin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView"
+                android:layout_marginTop="24dp"
+                android:layout_toEndOf="@+id/scan_result"
+                android:text="@string/coins"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="135dp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/button_coin"
+                android:layout_marginTop="18dp"
+                android:text="Scan barcode and get info" />
+
+            <TextView
+                android:id="@+id/scan_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/scan"
+                android:layout_marginTop="30dp" />
+
+            <TextView
+                android:id="@+id/tv_swipe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/scan_result"
+                android:layout_alignBottom="@+id/scan_result"
+                android:layout_alignParentStart="true"
+                android:text="swipe" />
+
+            <Button
+                android:id="@+id/btn_swipe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_swipe"
+                android:layout_marginTop="16dp"
+                android:layout_toEndOf="@+id/scan_result"
+                android:onClick="swipe"
+                android:text="Button" />
+
+            <TextView
+                android:id="@+id/textDual"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/btn_swipe"
+                android:layout_marginTop="15dp"
+                android:text="dualfragment" />
+
+            <Button
+                android:id="@+id/bnDual"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textDual"
+                android:layout_marginTop="17dp"
+                android:onClick="startDual"
+                android:text="Button" />
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

@@ -13,6 +13,7 @@ import com.example.filip.info.R
 import com.example.filip.info.ScanBarcodeActivity
 import com.example.filip.info.view.CoinListActivity
 import com.example.filip.info.view.DisplayInfoActivity
+import com.example.filip.info.view.DualActivity
 import com.example.filip.info.view.swipe.SwipeActivity
 import com.google.android.gms.common.api.CommonStatusCodes
 import com.google.android.gms.vision.barcode.Barcode
@@ -48,6 +49,11 @@ class KotlinActivity : AppCompatActivity() {
     fun swipe(v: View) {
         Log.i(TAG, "in swipe")
         startActivityHandler(SwipeActivity::class.java)
+    }
+
+    fun startDual(v: View) {
+        Log.i(TAG, "in startDual")
+        startActivityHandler(DualActivity::class.java)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

@@ -38,6 +38,8 @@
 
         <activity android:name=".view.CoinListActivity" />
         <activity android:name=".view.swipe.SwipeActivity" />
+        <activity android:name=".view.DualActivity" />
+        <activity android:name=".dual.PortraitDetailActivity" />
     </application>
 
 </manifest>

@@ -5,7 +5,9 @@
     android:layout_height="match_parent"
     tools:context="com.example.filip.info.main.KotlinActivity">
 
-    <include layout="@layout/toolbar" />
+    <include
+        layout="@layout/toolbar"
+        android:elevation="4dp" />
 
     <TextView
         android:id="@+id/textView"
@@ -71,6 +73,25 @@
         android:layout_marginTop="16dp"
         android:layout_toEndOf="@+id/scan_result"
         android:onClick="swipe"
+        android:text="Button" />
+
+    <TextView
+        android:id="@+id/textDual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btn_swipe"
+        android:layout_marginTop="15dp"
+        android:text="dualfragment" />
+
+    <Button
+        android:id="@+id/bnDual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textDual"
+        android:layout_marginTop="17dp"
+        android:onClick="startDual"
         android:text="Button" />
 
 

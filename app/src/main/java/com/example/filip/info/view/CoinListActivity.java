@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
+import com.example.filip.info.OnlineChecker;
 import com.example.filip.info.R;
 import com.example.filip.info.coin.Coin;
 import com.example.filip.info.coin.ParseJSON;
@@ -75,7 +76,7 @@ public class CoinListActivity extends AppCompatActivity implements OnTaskComplet
 
                         }
                     }).check();
-
+            new OnlineChecker().isOnline(this);
             if (permissionGranted) parseJSON.getCoins(this);
 
         } catch (ExecutionException e) {

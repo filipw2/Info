@@ -5,6 +5,7 @@ import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
 import com.example.filip.info.R;
 
@@ -24,6 +25,12 @@ public class PortraitDetailActivity extends AppCompatActivity {
         int position = 0;
 
         Bundle bundle = getIntent().getExtras();
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         if (bundle != null) {
             position = bundle.getInt("Position");
         }

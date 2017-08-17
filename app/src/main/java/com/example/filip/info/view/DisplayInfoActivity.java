@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,7 +25,7 @@ import com.google.firebase.storage.StorageReference;
 
 
 public class DisplayInfoActivity extends AppCompatActivity {
-
+    public static final String TAG = "DisplayInfoActivity";
     ImageView imageV;
     TextView textV;
     Context context;
@@ -34,11 +37,17 @@ public class DisplayInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_display);
+        Log.i(TAG, "in onCreate");
         Intent intent = getIntent();
         message = intent.getStringExtra("com.example.filip.info.MESSAGE");
         imageV = (ImageView) findViewById(R.id.ImageViewImage);
         textV = (TextView) findViewById(R.id.editTextV);
         textV.setText(message);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         createView(message);
 
 
@@ -77,5 +86,10 @@ public class DisplayInfoActivity extends AppCompatActivity {
         }
     }
 
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_info, menu);
+        return true;
+    }
 }
+

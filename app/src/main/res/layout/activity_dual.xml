@@ -5,11 +5,15 @@
     android:layout_height="match_parent"
     tools:context=".view.DualActivity">
 
+    <include
+        android:id="@+id/include"
+        layout="@layout/toolbar"/>
     <FrameLayout
         android:id="@+id/listFragmentHolder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"></FrameLayout>
+        android:layout_below="@+id/include"></FrameLayout>
+
 </RelativeLayout>

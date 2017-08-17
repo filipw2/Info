@@ -41,6 +41,7 @@ public class CoinListActivity extends AppCompatActivity implements OnTaskComplet
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         rvCoins = (RecyclerView) findViewById(R.id.rvCoins);
         parseJSON();
 

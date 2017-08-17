@@ -31,8 +31,8 @@ class KotlinActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val myToolbar = findViewById(R.id.toolbar) as Toolbar
-        setSupportActionBar(myToolbar)
 
+        setSupportActionBar(myToolbar)
         barcodeResult = findViewById(R.id.scan_result) as TextView
         var button: Button = findViewById(R.id.button_coin) as Button
         button.setOnClickListener {
@@ -42,7 +42,8 @@ class KotlinActivity : AppCompatActivity() {
     }
 
     fun scanBarcode(v: View) {
-        startActivityHandler(ScanBarcodeActivity::class.java)
+        var intent = Intent(applicationContext, ScanBarcodeActivity::class.java)
+        startActivityForResult(intent, 0)
 
     }
 
@@ -57,6 +58,8 @@ class KotlinActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        Log.i(TAG, "onActivityResult")
+
         if (requestCode == 0) {
             if (resultCode == CommonStatusCodes.SUCCESS) {
                 if (data != null) {
@@ -64,6 +67,7 @@ class KotlinActivity : AppCompatActivity() {
 
                     val message = barcode.displayValue
 
+                    Log.i(TAG, "onActivityResult startActivity with message $message")
                     startActivityHandler(DisplayInfoActivity::class.java, message)
 
 

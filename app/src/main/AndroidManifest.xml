@@ -34,12 +34,22 @@
         <activity android:name=".ScanBarcodeActivity"
             android:label="Scan Barcode"/>
 
-        <activity android:name=".view.DisplayInfoActivity" />
+        <activity
+            android:name=".view.DisplayInfoActivity"
+            android:parentActivityName=".main.KotlinActivity"/>
 
-        <activity android:name=".view.CoinListActivity" />
-        <activity android:name=".view.swipe.SwipeActivity" />
-        <activity android:name=".view.DualActivity" />
-        <activity android:name=".dual.PortraitDetailActivity" />
+        <activity
+            android:name=".view.CoinListActivity"
+            android:parentActivityName=".main.KotlinActivity"/>
+        <activity
+            android:name=".view.swipe.SwipeActivity"
+            android:parentActivityName=".main.KotlinActivity"/>
+        <activity
+            android:name=".view.DualActivity"
+            android:parentActivityName=".main.KotlinActivity"/>
+        <activity
+            android:name=".dual.PortraitDetailActivity"
+            android:parentActivityName=".view.DualActivity"/>
     </application>
 
 </manifest>

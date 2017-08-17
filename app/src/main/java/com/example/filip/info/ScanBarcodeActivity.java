@@ -32,6 +32,7 @@ public class ScanBarcodeActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.i(TAG, "in onCreate");
         setContentView(R.layout.activity_camera);
         mLayout = findViewById(R.id.camera_preview);
         cameraPreview = findViewById(R.id.camera_preview);
@@ -42,6 +43,8 @@ public class ScanBarcodeActivity extends Activity {
     }
 
     private void createCameraSource() {
+        Log.i(TAG, "in createCameraSource");
+
         final BarcodeDetector barcodeDetector = new BarcodeDetector.Builder(this).build();
         final CameraSource cameraSource = new CameraSource.Builder(this, barcodeDetector)
                 .setRequestedPreviewSize(1920, 1080)
@@ -83,8 +86,10 @@ public class ScanBarcodeActivity extends Activity {
 
             @Override
             public void receiveDetections(Detector.Detections<Barcode> detections) {
+
                 final SparseArray<Barcode> barcodes = detections.getDetectedItems();
                 if (barcodes.size() > 0) {
+                    Log.i(TAG, "in receiveDetections size >0");
                     Intent intent = new Intent();
                     intent.putExtra("barcode", barcodes.valueAt(0));
                     setResult(CommonStatusCodes.SUCCESS, intent);

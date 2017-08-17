@@ -7,7 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 
 import com.example.filip.info.R;
 import com.example.filip.info.dual.ActivityComs;
@@ -27,7 +29,11 @@ public class DualActivity extends AppCompatActivity implements ActivityComs {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dualfragment);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         FragmentManager fManager = getFragmentManager();
 
         Fragment frag = fManager.findFragmentById(R.id.listFragmentHolder);
@@ -72,5 +78,12 @@ public class DualActivity extends AppCompatActivity implements ActivityComs {
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu_info, menu);
+        return true;
     }
 }

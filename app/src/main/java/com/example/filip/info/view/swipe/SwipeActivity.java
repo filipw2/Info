@@ -32,7 +32,10 @@ public class SwipeActivity extends AppCompatActivity {
         Log.i(TAG, "new adapter");
         demoFragmentPageAdapter = new DemoFragmentPageAdapter(getSupportFragmentManager());
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         viewPager = (ViewPager) findViewById(R.id.pager);
         Log.i(TAG, "setAdapter");

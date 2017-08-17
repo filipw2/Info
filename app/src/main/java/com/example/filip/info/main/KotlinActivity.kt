@@ -29,6 +29,7 @@ class KotlinActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout)
         setContentView(R.layout.activity_main)
         val myToolbar = findViewById(R.id.toolbar) as Toolbar
 
@@ -41,6 +42,10 @@ class KotlinActivity : AppCompatActivity() {
 
     }
 
+    override fun onPause() {
+        super.onPause()
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout)
+    }
     fun scanBarcode(v: View) {
         var intent = Intent(applicationContext, ScanBarcodeActivity::class.java)
         startActivityForResult(intent, 0)
@@ -70,13 +75,14 @@ class KotlinActivity : AppCompatActivity() {
                     Log.i(TAG, "onActivityResult startActivity with message $message")
                     startActivityHandler(DisplayInfoActivity::class.java, message)
 
-
-                    //barcodeResult.setText("Barcode: "+barcode.displayValue);
                 } else {
-                    barcodeResult.text = "No barcode found"
+                    recreate()
                 }
+            } else {
+                recreate()
             }
         } else {
+            recreate()
         }
     }
 

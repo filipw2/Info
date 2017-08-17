@@ -27,6 +27,7 @@ public class SwipeActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         Log.i(TAG, "in onCreate");
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.activity_swipe);
 
         Log.i(TAG, "new adapter");
@@ -66,6 +67,12 @@ public class SwipeActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
     }
 
     @Override

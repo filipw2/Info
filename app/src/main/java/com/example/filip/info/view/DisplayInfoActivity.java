@@ -35,7 +35,7 @@ public class DisplayInfoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.activity_display);
         Log.i(TAG, "in onCreate");
         Intent intent = getIntent();
@@ -84,6 +84,12 @@ public class DisplayInfoActivity extends AppCompatActivity {
         }catch(Exception e){
             textV.setText(e.toString());
         }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
     }
 
     @Override

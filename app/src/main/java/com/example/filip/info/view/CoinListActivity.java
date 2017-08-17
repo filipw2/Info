@@ -36,6 +36,7 @@ public class CoinListActivity extends AppCompatActivity implements OnTaskComplet
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.activity_coins);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
@@ -45,6 +46,12 @@ public class CoinListActivity extends AppCompatActivity implements OnTaskComplet
         rvCoins = (RecyclerView) findViewById(R.id.rvCoins);
         parseJSON();
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
     }
 
     private void parseJSON() {

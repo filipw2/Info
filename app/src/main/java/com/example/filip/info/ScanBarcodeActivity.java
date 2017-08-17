@@ -33,6 +33,7 @@ public class ScanBarcodeActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "in onCreate");
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.activity_camera);
         mLayout = findViewById(R.id.camera_preview);
         cameraPreview = findViewById(R.id.camera_preview);

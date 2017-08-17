@@ -27,6 +27,7 @@ public class DualActivity extends AppCompatActivity implements ActivityComs {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.activity_dualfragment);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -78,6 +79,12 @@ public class DualActivity extends AppCompatActivity implements ActivityComs {
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
     }
 
     @Override

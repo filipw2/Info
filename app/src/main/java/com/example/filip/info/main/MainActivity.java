@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        barcodeResult = (TextView) findViewById(R.id.scan_result);
     }
 
     public void scanBarcode(View v){

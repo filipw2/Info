@@ -3,5 +3,8 @@
     <string name="permission_granted">Permission GRANTED</string>
     <string name="permission_not_granted">Permission not granted</string>
     <string name="rationale_camera">Need camera permission</string>
-    <string name="coins">Coins</string>
+    <string name="coins">CRYPTO CURRENCY</string>
+    <string name="swipe">SWIPE ACTIVITY</string>
+    <string name="dual">DUAL ACTIVITY</string>
+    <string name="scan_barcode">SCAN BARCODE</string>
 </resources>

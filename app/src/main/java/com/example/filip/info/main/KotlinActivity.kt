@@ -34,7 +34,6 @@ class KotlinActivity : AppCompatActivity() {
         val myToolbar = findViewById(R.id.toolbar) as Toolbar
 
         setSupportActionBar(myToolbar)
-        barcodeResult = findViewById(R.id.scan_result) as TextView
         var button: Button = findViewById(R.id.button_coin) as Button
         button.setOnClickListener {
             startActivityHandler(CoinListActivity::class.java)

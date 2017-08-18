@@ -83,7 +83,6 @@ public class ParseJSON {
         protected String doInBackground(String... urls) {
 
             try {
-
                 URL url = new URL(urls[0]);
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 Log.i(TAG, "openConnection");
@@ -103,7 +102,7 @@ public class ParseJSON {
 
         @Override
         protected void onPostExecute(String result) {
-            Log.i(TAG, "r: " + result);
+            //Log.i(TAG, "r: " + result);
             try {
 
                 Log.i(TAG, "new JSON");

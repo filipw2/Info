@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.filip.info.R;
@@ -48,19 +49,22 @@ public class DisplayInfoActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        context = this;
         createView(message);
 
 
-        context = this;
+
     }
 
     public void createView(String id) {
         try {
             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+
             Query landmark = databaseReference.child("Landmark").child(id);
+            Toast.makeText(context, "Loading", Toast.LENGTH_SHORT).show();
+
             FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
             storageReference = firebaseStorage.getReference();
-
             landmark.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
@@ -82,7 +86,8 @@ public class DisplayInfoActivity extends AppCompatActivity {
 
 
         }catch(Exception e){
-            textV.setText(e.toString());
+            //Toast.makeText(context, "Something went wrong", Toast.LENGTH_LONG).show();
+
         }
     }
 

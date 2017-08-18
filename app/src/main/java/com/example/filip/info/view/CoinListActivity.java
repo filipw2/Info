@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.Toast;
 
 import com.example.filip.info.OnlineChecker;
 import com.example.filip.info.R;
@@ -56,6 +57,8 @@ public class CoinListActivity extends AppCompatActivity implements OnTaskComplet
     }
 
     private void parseJSON() {
+
+
         parseJSON = new ParseJSON();
         try {
             Dexter.withActivity(this)
@@ -76,6 +79,8 @@ public class CoinListActivity extends AppCompatActivity implements OnTaskComplet
 
                         }
                     }).check();
+            Toast.makeText(this, "Loading", Toast.LENGTH_SHORT).show();
+
             new OnlineChecker().isOnline(this);
             if (permissionGranted) parseJSON.getCoins(this);
 

@@ -56,11 +56,12 @@ public class DisplayInfoActivity extends AppCompatActivity {
 
     }
 
-    public void createView(String id) {
+    public void createView(final String id) {
         try {
             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
-            Query landmark = databaseReference.child("Landmark").child(id);
+
+            Query landmark = databaseReference.child("Landmark");
             Toast.makeText(context, "Loading", Toast.LENGTH_SHORT).show();
 
             FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
@@ -68,14 +69,18 @@ public class DisplayInfoActivity extends AppCompatActivity {
             landmark.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    String text = dataSnapshot.child("text").getValue(String.class);
-                    String img = dataSnapshot.child("image").getValue(String.class);
-                    textV.setText(text);
-                    image = storageReference.child("images/"+img);
-                    Glide.with(context)
-                            .using(new FirebaseImageLoader())
-                            .load(image)
-                            .into(imageV);
+                    if (dataSnapshot.hasChild(id)) {
+                        String text = dataSnapshot.child(id).child("text").getValue(String.class);
+                        String img = dataSnapshot.child(id).child("image").getValue(String.class);
+                        textV.setText(text);
+                        image = storageReference.child("images/" + img);
+                        Glide.with(context)
+                                .using(new FirebaseImageLoader())
+                                .load(image)
+                                .into(imageV);
+                    } else {
+                        Toast.makeText(context, "ID not found", Toast.LENGTH_SHORT).show();
+                    }
                 }
 
                 @Override

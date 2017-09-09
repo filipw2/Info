@@ -29,4 +29,10 @@ public class AddressBook {
     public ArrayList<NameAndAddress> getBook() {
         return mNameAndAddress;
     }
+
+    public void insertAddress(String name, String city, String street, String code) {
+        NameAndAddress tmp = new NameAndAddress(name, city, street, code);
+        mNameAndAddress.add(tmp);
+
+    }
 }

@@ -26,7 +26,7 @@ import java.util.concurrent.ExecutionException;
 
 public class ParseJSON {
     private static String TAG = "ParseJSON";
-    private Coin[] coins;
+    private Coins[] coins;
 
     public static String streamToString(InputStream is) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
@@ -109,7 +109,7 @@ public class ParseJSON {
                 JSONArray jsonArray = new JSONArray(result);
 
                 Gson gson = new Gson();
-                coins = gson.fromJson(result, Coin[].class);
+                coins = gson.fromJson(result, Coins[].class);
 
                 listener.onTaskCompleted(new ArrayList<>(Arrays.asList(coins)));
 

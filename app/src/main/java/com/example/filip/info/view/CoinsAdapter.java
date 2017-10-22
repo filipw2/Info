@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.filip.info.R;
-import com.example.filip.info.coin.Coin;
+import com.example.filip.info.coin.Coins;
 
 import java.util.List;
 
@@ -18,16 +18,20 @@ import java.util.List;
 
 public class CoinsAdapter extends RecyclerView.Adapter<CoinsAdapter.ViewHolder> {
 
-    private List<Coin> mCoins;
+    private List<Coins> mCoins;
     private Context mContext;
 
-    public CoinsAdapter(List<Coin> mCoins, Context mContext) {
+    public CoinsAdapter(List<Coins> mCoins, Context mContext) {
         this.mCoins = mCoins;
         this.mContext = mContext;
     }
 
     public Context getmContext() {
         return mContext;
+    }
+
+    public void setCoins(List<Coins> coins) {
+        mCoins = coins;
     }
 
     @Override
@@ -44,14 +48,14 @@ public class CoinsAdapter extends RecyclerView.Adapter<CoinsAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(CoinsAdapter.ViewHolder holder, int position) {
-        Coin coin = mCoins.get(position);
+        Coins coin = mCoins.get(position);
 
         TextView textView = holder.nameTextView;
         textView.setText(coin.getName());
         textView = holder.symbolTextView;
         textView.setText(coin.getSymbol());
         textView = holder.priceTextView;
-        textView.setText(coin.getPrice().toString() + "$");
+        textView.setText(coin.getPrice_usd().toString() + "$");
     }
 
     @Override

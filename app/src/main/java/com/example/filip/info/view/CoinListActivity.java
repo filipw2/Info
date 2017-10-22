@@ -11,7 +11,8 @@ import android.widget.Toast;
 
 import com.example.filip.info.OnlineChecker;
 import com.example.filip.info.R;
-import com.example.filip.info.coin.Coin;
+import com.example.filip.info.coin.Coins;
+import com.example.filip.info.coin.CoinsRepo;
 import com.example.filip.info.coin.ParseJSON;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
@@ -30,10 +31,12 @@ import java.util.concurrent.ExecutionException;
 
 public class CoinListActivity extends AppCompatActivity implements OnTaskCompleted {
 
-    List<Coin> coins;
+    List<Coins> coins;
     RecyclerView rvCoins;
     ParseJSON parseJSON;
     Boolean permissionGranted = true;
+    CoinsRepo mCoinsRepo;
+    CoinsAdapter adapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,11 +44,13 @@ public class CoinListActivity extends AppCompatActivity implements OnTaskComplet
         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.activity_coins);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-
+        mCoinsRepo = CoinsRepo.getInstance();
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         rvCoins = (RecyclerView) findViewById(R.id.rvCoins);
+        setAdapterHandler();
+        adapter.setCoins(mCoinsRepo.getCoinsArrayList());
         parseJSON();
 
     }
@@ -94,11 +99,14 @@ public class CoinListActivity extends AppCompatActivity implements OnTaskComplet
     @Override
     public void onTaskCompleted(ArrayList arrayList) {
         coins = arrayList;
-        setAdapterHandler();
+        mCoinsRepo.insertMultiple(arrayList);
+        adapter.setCoins(arrayList);
+        adapter.notifyDataSetChanged();
+
     }
 
     private void setAdapterHandler() {
-        CoinsAdapter adapter = new CoinsAdapter(coins, this);
+        adapter = new CoinsAdapter(coins, this);
         rvCoins.setAdapter(adapter);
         rvCoins.setLayoutManager(new LinearLayoutManager(this));
     }

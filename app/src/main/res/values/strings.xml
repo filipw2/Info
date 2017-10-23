@@ -7,4 +7,6 @@
     <string name="swipe">SWIPE ACTIVITY</string>
     <string name="dual">DUAL ACTIVITY</string>
     <string name="scan_barcode">SCAN BARCODE</string>
+    <string name="title_activity_demo">Demo</string>
+    <string name="button_demo">BUTTON_DEMO</string>
 </resources>

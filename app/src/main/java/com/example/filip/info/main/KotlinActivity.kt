@@ -12,6 +12,7 @@ import android.widget.TextView
 import com.example.filip.info.R
 import com.example.filip.info.ScanBarcodeActivity
 import com.example.filip.info.view.CoinListActivity
+import com.example.filip.info.view.Demo
 import com.example.filip.info.view.DisplayInfoActivity
 import com.example.filip.info.view.DualActivity
 import com.example.filip.info.view.swipe.SwipeActivity
@@ -59,6 +60,10 @@ class KotlinActivity : AppCompatActivity() {
     fun startDual(v: View) {
         Log.i(TAG, "in startDual")
         startActivityHandler(DualActivity::class.java)
+    }
+
+    fun startDemo(v: View) {
+        startActivityHandler(Demo::class.java)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

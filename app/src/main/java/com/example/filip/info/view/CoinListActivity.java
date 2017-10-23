@@ -14,6 +14,7 @@ import com.example.filip.info.R;
 import com.example.filip.info.coin.Coins;
 import com.example.filip.info.coin.CoinsRepo;
 import com.example.filip.info.coin.ParseJSON;
+import com.example.filip.info.coin.RetrofitCoins;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionDeniedResponse;
@@ -41,6 +42,7 @@ public class CoinListActivity extends AppCompatActivity implements OnTaskComplet
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.activity_coins);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -51,8 +53,9 @@ public class CoinListActivity extends AppCompatActivity implements OnTaskComplet
         rvCoins = (RecyclerView) findViewById(R.id.rvCoins);
         setAdapterHandler();
         adapter.setCoins(mCoinsRepo.getCoinsArrayList());
-        parseJSON();
-
+        //parseJSON();
+        RetrofitCoins retrofitCoins = new RetrofitCoins();
+        retrofitCoins.getRetrofitArray();
     }
 
     @Override

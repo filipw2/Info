@@ -2,6 +2,8 @@ package com.example.filip.info;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 
 import com.example.filip.info.coin.DatabaseHelper;
 import com.example.filip.info.coin.DatabaseManager;
@@ -23,6 +25,10 @@ public class InfoApp extends Application {
         super.onCreate();
         context = this.getApplicationContext();
         dbHelper = new DatabaseHelper();
+        BroadcastRec br = new BroadcastRec();
+        IntentFilter intentFilter = new IntentFilter(POWER_SERVICE);
+        intentFilter.addAction(Intent.ACTION_POWER_CONNECTED);
+        this.registerReceiver(br, intentFilter);
         DatabaseManager.initializeInstance(dbHelper);
 
     }
